@@ -14,8 +14,7 @@ class TokenManager @Inject constructor(private val dataStorePref: DataStore<Pref
         }
     }
 
-     suspend fun getToken(callback: (token: String?) -> Unit){
-        val savedToken = dataStorePref.data.first()[PreferencesKeys.USER_TOKEN]
-        callback(savedToken)
+    suspend fun getToken(): String? {
+        return dataStorePref.data.first()[PreferencesKeys.USER_TOKEN]
     }
 }
