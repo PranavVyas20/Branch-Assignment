@@ -1,4 +1,4 @@
-package com.example.branch_assignment.constants
+package com.example.branch_assignment.utils.constants
 
 object Constants {
     const val BASE_URL = "https://android-messaging.branch.co/"

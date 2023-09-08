@@ -5,7 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.example.branch_assignment.constants.Constants
+import com.example.branch_assignment.utils.constants.Constants
 import com.example.branch_assignment.remote.api.auth.AuthApi
 import com.example.branch_assignment.remote.api.message.MessageApi
 import com.example.branch_assignment.remote.api.message.MessageRequestInterceptor
