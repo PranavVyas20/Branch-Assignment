@@ -112,7 +112,10 @@ fun MessageThreadItemView(message: MessageDto, onClick: (threadId: Int) -> Unit)
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             TextItem(heading = "Id", value = message.id.toString())
-            TextItem(heading = "Sender Id", value = (message.agentId ?: message.userId).toString())
+
+            TextItem(
+                heading = "Sender Id",
+                value = if (message.agentId.isNullOrEmpty()) message.userId else message.agentId)
             TextItem(heading = "Thread Id", value = message.threadId.toString())
             TextItem(heading = "Created at", value = message.dateTime)
             TextItem(heading = "Message", value = message.messageBody)

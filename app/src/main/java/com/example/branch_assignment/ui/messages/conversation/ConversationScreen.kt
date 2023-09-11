@@ -31,7 +31,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -45,7 +44,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.branch_assignment.data.model.message.MessageDto
 import com.example.branch_assignment.ui.messages.threads.TextItem
 import com.example.branch_assignment.ui.viewmodel.MainViewModel
-
 
 @Composable
 fun ConversationScreen(threadId: Int, viewModel: MainViewModel) {
@@ -78,7 +76,7 @@ fun ConversationScreen(threadId: Int, viewModel: MainViewModel) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ConversationScreenContent(
     messages: List<MessageDto>,
@@ -155,8 +153,9 @@ fun ConversationItemView(message: MessageDto) {
         ) {
             TextItem(
                 heading = "Sender Id",
-                value = (message.agentId ?: message.userId).toString()
+                value = if (message.agentId.isNullOrEmpty()) message.userId else message.agentId
             )
+
             TextItem(heading = "Message", value = message.messageBody)
             TextItem(heading = "Time", value = message.dateTime)
         }
